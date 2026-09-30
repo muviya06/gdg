@@ -13,5 +13,10 @@
     "username": "hp123",
     "passwordHash": "$2a$10$xuCapKD5ysykhUnHMxpEjOKIwSkxqBNEOW8MRBkGu2hMKIo50kK4u",
     "state": "Tamil Nadu"
+  },
+  {
+    "username": "supabasetest",
+    "passwordHash": "$2a$10$AXtHoV6Y..xoAJMdKXzQRO.hKJdl960O8NgOKkwNPoi0afX5LYhIi",
+    "state": "Tamil Nadu"
   }
 ]

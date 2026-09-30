@@ -1,19 +1,3 @@
-require('dotenv').config();
-
-const express = require('express');
-const fs = require('fs');
-const path = require('path');
-const bcrypt = require('bcryptjs');
-const { createClient } = require('@supabase/supabase-js');
-
-const app = express();
-const PORT = Number(process.env.PORT) || 3000;
-const projectRoot = path.join(__dirname, '..');
-const usersFilePath = path.join(__dirname, 'data', 'users.json');
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY;
-const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
-
 const KNOWLEDGE_BASE = {
   Paddy: {
     traditional_practice: {
@@ -84,69 +68,6 @@ const guidanceTranslations = {
   }
 };
 
-function ensureUsersFile() {
-  if (!fs.existsSync(usersFilePath)) {
-    fs.mkdirSync(path.dirname(usersFilePath), { recursive: true });
-    fs.writeFileSync(usersFilePath, '[]', 'utf8');
-  }
-}
-
-function readUsers() {
-  ensureUsersFile();
-  try {
-    const content = fs.readFileSync(usersFilePath, 'utf8');
-    const parsed = JSON.parse(content || '[]');
-    return Array.isArray(parsed) ? parsed : [];
-  } catch (error) {
-    return [];
-  }
-}
-
-function writeUsers(users) {
-  ensureUsersFile();
-  fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2), 'utf8');
-}
-
-async function getSupabaseUsers() {
-  if (!supabase) {
-    return { users: readUsers() };
-  }
-
-  try {
-    const { data, error } = await supabase.from('profiles').select('*');
-    if (error) {
-      throw error;
-    }
-    return { users: (data || []).map((user) => ({
-      username: user.username,
-      passwordHash: user.password_hash,
-      state: user.state
-    })) };
-  } catch (error) {
-    return { users: readUsers(), fallback: true };
-  }
-}
-
-async function saveSupabaseUser(username, passwordHash, state) {
-  if (!supabase) {
-    const localUsers = readUsers();
-    localUsers.push({ username, passwordHash, state });
-    writeUsers(localUsers);
-    return;
-  }
-
-  try {
-    const { error } = await supabase.from('profiles').insert({ username, password_hash: passwordHash, state });
-    if (error) {
-      throw error;
-    }
-  } catch (error) {
-    const localUsers = readUsers();
-    localUsers.push({ username, passwordHash, state });
-    writeUsers(localUsers);
-  }
-}
-
 function cleanText(value) {
   if (typeof value !== 'string') return '';
   return value.trim();
@@ -169,12 +90,8 @@ function analyseField(data) {
   const weather = cleanText(data.weather) || 'unspecified weather';
   const soil = cleanText(data.soil) || 'unspecified soil';
 
-  if (!crop) {
-    throw new Error('Crop is required.');
-  }
-
-  if (!location) {
-    throw new Error('Location is required.');
+  if (!crop || !location) {
+    throw new Error('Crop and location are required.');
   }
 
   const cropKnowledge = KNOWLEDGE_BASE[crop];
@@ -182,8 +99,7 @@ function analyseField(data) {
     return {
       success: false,
       crop,
-      message: `Traditional knowledge for ${crop} is not available yet.`,
-      available_crops: Object.keys(KNOWLEDGE_BASE).sort()
+      message: `Traditional knowledge for ${crop} is not available yet.`
     };
   }
 
@@ -204,130 +120,19 @@ function analyseField(data) {
   };
 }
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(projectRoot));
-
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', app: 'fieldwise-farming-intelligence' });
-});
-
-app.post('/api/login', async (req, res) => {
-  try {
-    const username = String(req.body?.username || '').trim().toLowerCase();
-    const password = String(req.body?.password || '');
-    const state = String(req.body?.state || '').trim();
-    const createAccount = Boolean(req.body?.createAccount);
-
-    if (!username || !password) {
-      return res.status(400).json({ success: false, message: 'Username and password are required.' });
-    }
-
-    const { users } = await getSupabaseUsers();
-    const existingUser = users.find((user) => user.username === username);
-
-    if (createAccount) {
-      if (existingUser) {
-        return res.status(409).json({ success: false, message: 'Username already exists.' });
-      }
-
-      const passwordHash = await bcrypt.hash(password, 10);
-      await saveSupabaseUser(username, passwordHash, state);
-
-      return res.json({
-        success: true,
-        username,
-        state,
-        created: true,
-        message: 'Account created successfully.'
-      });
-    }
-
-    if (!existingUser) {
-      const passwordHash = await bcrypt.hash(password, 10);
-      await saveSupabaseUser(username, passwordHash, state);
-
-      return res.json({
-        success: true,
-        username,
-        state,
-        created: true,
-        message: 'New account created on sign in.'
-      });
-    }
-
-    const passwordMatches = await bcrypt.compare(password, existingUser.passwordHash);
-    if (!passwordMatches) {
-      return res.status(401).json({ success: false, message: 'Invalid username or password.' });
-    }
-
-    if (state) {
-      const targetUsers = readUsers();
-      const index = targetUsers.findIndex((user) => user.username === username);
-      if (index >= 0) {
-        targetUsers[index].state = state;
-        writeUsers(targetUsers);
-      }
-    }
-
-    return res.json({
-      success: true,
-      username,
-      state: existingUser.state || state,
-      created: false,
-      message: 'Login successful.'
-    });
-  } catch (error) {
-    return res.status(500).json({ success: false, message: 'Unable to process login request.' });
+module.exports = function handler(request, response) {
+  if (request.method !== 'POST') {
+    return response.status(405).json({ success: false, message: 'Method not allowed.' });
   }
-});
 
-app.post('/api/analyze', (req, res) => {
   try {
-    const result = analyseField(req.body || {});
+    const result = analyseField(request.body || {});
     if (!result.success) {
-      return res.status(400).json(result);
+      return response.status(400).json(result);
     }
-    return res.json(result);
+
+    return response.status(200).json(result);
   } catch (error) {
-    return res.status(400).json({ success: false, message: error.message || 'Analysis failed.' });
+    return response.status(400).json({ success: false, message: error && error.message ? error.message : 'Analysis failed.' });
   }
-});
-
-app.use((req, res, next) => {
-  if (req.path.startsWith('/api/')) {
-    return next();
-  }
-
-  const candidate = ['index.html', 'login.html'];
-  const wanted = candidate.find((fileName) => req.path === `/${fileName}` || req.path === fileName);
-
-  if (wanted) {
-    return res.sendFile(path.join(projectRoot, wanted));
-  }
-
-  if (req.path === '/' || req.path === '/index') {
-    return res.sendFile(path.join(projectRoot, 'index.html'));
-  }
-
-  return next();
-});
-
-function startServer(port) {
-  const server = app.listen(port, () => {
-    console.log(`Fieldwise backend running on http://localhost:${port}`);
-  });
-
-  server.on('error', (error) => {
-    if (error.code === 'EADDRINUSE') {
-      const nextPort = port + 1;
-      console.log(`Port ${port} is busy. Retrying on ${nextPort}...`);
-      startServer(nextPort);
-      return;
-    }
-
-    throw error;
-  });
-}
-
-startServer(PORT);
+};
