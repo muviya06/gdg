@@ -1,0 +1,17 @@
+[
+  {
+    "username": "demouser",
+    "passwordHash": "$2a$10$.RFPxZ9x3GRxwSmGUutLKep1DWS4Nw2E7ERx6Uu55L9QLRCT6o.mm",
+    "state": "Tamil Nadu"
+  },
+  {
+    "username": "portcheck",
+    "passwordHash": "$2a$10$/DYry34fLvAn2AUP9lLQZOyifvl20/59f7TZx4yDjaaGqHixPB6Ti",
+    "state": "Tamil Nadu"
+  },
+  {
+    "username": "hp123",
+    "passwordHash": "$2a$10$xuCapKD5ysykhUnHMxpEjOKIwSkxqBNEOW8MRBkGu2hMKIo50kK4u",
+    "state": "Tamil Nadu"
+  }
+]

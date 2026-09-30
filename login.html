@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183e2e">
+  <meta name="description" content="Sign in to Fieldwise farming intelligence.">
+  <title>Sign In | Fieldwise Farming Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="login.js" defer></script>
+</head>
+<body class="login-page">
+  <a class="skip-link" href="#auth-form">Skip to sign in</a>
+  <header class="site-header login-header">
+    <a class="brand" href="index.html" aria-label="Fieldwise home">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="none"><path d="M25.8 5.8C16.5 5.3 9.2 8.1 7 14.2c-1.6 4.5 1 8.4 5.2 8.4 7.2 0 12.9-7.3 13.6-16.8Z" stroke="currentColor" stroke-width="2"/><path d="M5.5 27c3.1-6.1 7.4-10.4 14.3-14.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </span>
+      <span class="brand__name">fieldwise<span> / farming intelligence</span></span>
+    </a>
+    <div class="nav-tools">
+      <label class="lang-picker" for="page-language">
+        <span class="sr-only" data-i18n="loginLanguage">Language</span>
+        <select id="page-language" aria-label="Select website language">
+          <option value="en">English</option>
+          <option value="ta">தமிழ்</option>
+          <option value="hi">हिन्दी</option>
+          <option value="te">తెలుగు</option>
+          <option value="kn">ಕನ್ನಡ</option>
+          <option value="ml">മലയാളം</option>
+        </select>
+      </label>
+      <a class="login-back" href="index.html"><span data-i18n="loginBack">Back to website</span> <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main class="login-main">
+    <section class="login-visual" aria-label="A cultivated field at sunrise">
+      <div class="login-visual__shade"></div>
+      <div class="login-visual__content">
+        <p class="eyebrow eyebrow--light"><span class="status-dot"></span> <span data-i18n="loginVisualTag">Knowledge grows together</span></p>
+        <blockquote data-i18n="loginVisualQuote">“The best way forward starts with understanding the land.”</blockquote>
+        <p class="login-visual__caption" data-i18n="loginVisualCaption">TRADITIONAL WISDOM. MODERN PERSPECTIVE.</p>
+      </div>
+      <span class="login-visual__index" aria-hidden="true" data-i18n="loginVisualIndex">FIELDWISE / 01</span>
+    </section>
+
+    <section class="login-panel" aria-labelledby="login-title">
+      <div class="login-content">
+        <p class="eyebrow" data-i18n="loginWorkspace">FARMER WORKSPACE</p>
+        <h1 id="login-title" data-i18n="loginWelcome">Welcome back.</h1>
+        <p class="login-intro" data-i18n="loginIntro">Sign in with your username or create a new account.</p>
+
+        <form class="login-form" id="auth-form">
+          <label class="login-field" for="state">
+            <span data-i18n="loginState">State</span>
+            <select id="state" name="state" required>
+              <option value="" disabled selected data-i18n="selectState">Select a state</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Chhattisgarh">Chhattisgarh</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Jharkhand">Jharkhand</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Manipur">Manipur</option>
+              <option value="Meghalaya">Meghalaya</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Odisha">Odisha</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Tripura">Tripura</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Uttarakhand">Uttarakhand</option>
+              <option value="West Bengal">West Bengal</option>
+              <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+              <option value="Chandigarh">Chandigarh</option>
+              <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+              <option value="Ladakh">Ladakh</option>
+              <option value="Lakshadweep">Lakshadweep</option>
+              <option value="Puducherry">Puducherry</option>
+            </select>
+          </label>
+          <label class="login-field" for="username">
+            <span data-i18n="loginUsername">Username</span>
+            <input id="username" name="username" type="text" autocomplete="username" minlength="3" maxlength="24" pattern="[A-Za-z0-9._\-]{3,24}" required>
+          </label>
+          <label class="login-field" for="password">
+            <span data-i18n="loginPassword">Password</span>
+            <input id="password" name="password" type="password" autocomplete="current-password" minlength="8" required>
+          </label>
+          <label class="login-field" id="confirm-password-field" for="confirm-password" hidden>
+            <span data-i18n="loginConfirmPassword">Confirm password</span>
+            <input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" minlength="8">
+          </label>
+          <button class="button button--forest login-submit" id="auth-submit" type="submit"><span data-i18n="loginSignIn">Sign in</span></button>
+          <p class="login-status" id="login-status" role="status" aria-live="polite"></p>
+        </form>
+        <button class="forgot-button login-mode-toggle" id="auth-mode-toggle" type="button" data-i18n="loginCreateAccount">Create account</button>
+        <p class="login-footnote"><span aria-hidden="true">i</span> <span data-i18n="loginFootnote">Accounts are stored in this browser only. This is a local demo, not server authentication.</span></p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+ 

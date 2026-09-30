@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183e2e">
+  <meta name="description" content="Bring traditional farming knowledge into modern agriculture with AI-powered, practical decision support.">
+  <title>AI-Powered Traditional Farming Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Fieldwise home">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="none"><path d="M25.8 5.8C16.5 5.3 9.2 8.1 7 14.2c-1.6 4.5 1 8.4 5.2 8.4 7.2 0 12.9-7.3 13.6-16.8Z" stroke="currentColor" stroke-width="2"/><path d="M5.5 27c3.1-6.1 7.4-10.4 14.3-14.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </span>
+      <span class="brand__name">fieldwise<span> / farming intelligence</span></span>
+    </a>
+    <div class="nav-tools">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+        <span></span><span></span>
+      </button>
+    </div>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <a href="#approach" data-i18n="navApproach">Our approach</a>
+      <a href="#assistant" data-i18n="navAssistant">AI assistant</a>
+      <a href="#how-it-works" data-i18n="navHow">How it works</a>
+      <button class="nav-logout" id="logout-button" type="button" data-i18n="navLogout">Logout</button>
+      <a class="nav-cta" href="#assistant"><span data-i18n="navTry">Try the assistant</span> <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero__photo" role="img" aria-label="Green cultivated fields stretching across a rural landscape"></div>
+      <div class="hero__shade"></div>
+      <div class="hero__content">
+        <p class="eyebrow eyebrow--light"><span class="status-dot"></span> <span data-i18n="heroEyebrow">Agricultural intelligence, rooted in experience</span></p>
+        <h1 id="hero-title" data-i18n="heroTitle">AI-Powered Traditional Farming Intelligence</h1>
+        <p class="hero__subtitle" data-i18n="heroSubtitle">Bringing traditional farming knowledge into modern agriculture with AI.</p>
+        <div class="hero__actions">
+          <a class="button button--lime" href="#assistant"><span data-i18n="heroStart">Start AI Analysis</span> <span aria-hidden="true">↗</span></a>
+          <a class="text-link text-link--light" href="#approach"><span data-i18n="heroDiscover">Discover our approach</span> <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero__footnote"><span class="hero__line"></span> <span data-i18n="heroFoot">LOCAL WISDOM. BETTER-INFORMED FARMING.</span></div>
+      </div>
+      <div class="hero__coordinates" aria-hidden="true"><span data-i18n="fieldNotes">FIELD NOTES</span><br>01 / 06</div>
+      <div class="hero__caption"><span>01</span> <span data-i18n="fieldNoteCaption">Knowledge grows when it is shared.</span></div>
+    </section>
+
+    <div class="signal-strip" aria-label="Our principles">
+      <span><i>01</i> <span data-i18n="signal1">Local knowledge</span></span><span class="signal-strip__plus">+</span>
+      <span><i>02</i> <span data-i18n="signal2">Modern data</span></span><span class="signal-strip__plus">+</span>
+      <span><i>03</i> <span data-i18n="signal3">Informed decisions</span></span>
+      <span class="signal-strip__note" data-i18n="signalNote">A new kind of farming conversation</span>
+    </div>
+
+    <section class="section problem-section" id="approach" aria-labelledby="problem-title">
+      <div class="section-heading">
+        <p class="eyebrow" data-i18n="oppLabel">01 — The opportunity</p>
+        <h2 id="problem-title" data-i18n="oppTitle">Good knowledge<br>deserves to travel.</h2>
+      </div>
+      <div class="problem-copy">
+        <p class="problem-copy__lead" data-i18n="oppLead">For generations, farmers have read the land through lived experience. That wisdom is valuable, but too often it is shared informally and can be difficult for others to access.</p>
+        <div class="problem-points">
+          <article class="problem-point">
+            <span class="point-number">A</span>
+            <div><h3 data-i18n="pointAHead">Experience is passed person to person</h3><p data-i18n="pointAText">Traditional farming knowledge is often shared informally, making it easy to miss or lose between generations.</p></div>
+          </article>
+          <article class="problem-point">
+            <span class="point-number">B</span>
+            <div><h3 data-i18n="pointBHead">Nature holds useful signals</h3><p data-i18n="pointBText">Natural signs, seasonal patterns and local experience offer valuable context for everyday farming decisions.</p></div>
+          </article>
+          <article class="problem-point">
+            <span class="point-number">C</span>
+            <div><h3 data-i18n="pointCHead">Context belongs together</h3><p data-i18n="pointCText">Farmers need a simple way to connect traditional knowledge with modern weather, soil and agricultural information.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="solution-section" aria-labelledby="solution-title">
+      <div class="solution-section__inner">
+        <div class="solution-intro">
+          <p class="eyebrow eyebrow--light" data-i18n="solutionLabel">02 — Our solution</p>
+          <h2 id="solution-title" data-i18n="solutionTitle">Two ways of knowing.<br>One clearer next step.</h2>
+          <p data-i18n="solutionText">We bring local practices and present-day context into one accessible AI-assisted process.</p>
+        </div>
+        <div class="flow" aria-label="Traditional farming knowledge and modern agricultural data feed into AI analysis to produce farming guidance">
+          <div class="flow__inputs">
+            <div class="flow-node"><span class="flow-node__index" data-i18n="input01">INPUT 01</span><strong data-i18n="tradFarm">Traditional Farming<br>Knowledge</strong><span class="flow-node__symbol" aria-hidden="true">⌁</span></div>
+            <span class="flow__operator" aria-hidden="true">+</span>
+            <div class="flow-node"><span class="flow-node__index" data-i18n="input02">INPUT 02</span><strong data-i18n="modernData">Modern Agricultural<br>Data</strong><span class="flow-node__symbol" aria-hidden="true">◷</span></div>
+          </div>
+          <div class="flow__connector" aria-hidden="true"><span></span><b>↓</b></div>
+          <div class="flow-node flow-node--ai"><span class="flow-node__index" data-i18n="interpret">INTERPRET</span><strong data-i18n="aiAnalysis">AI Analysis</strong><span class="flow-node__tag" data-i18n="contextAware">CONTEXT-AWARE</span></div>
+          <div class="flow__connector" aria-hidden="true"><span></span><b>↓</b></div>
+          <div class="flow-node flow-node--result"><span class="flow-node__index" data-i18n="output">OUTPUT</span><strong data-i18n="farmingGuidance">Farming Guidance</strong><span class="flow-node__symbol" aria-hidden="true">↗</span></div>
+        </div>
+      </div>
+      <div class="solution-section__index" aria-hidden="true"><span data-i18n="methodLabel">FIELDWISE / METHOD 01</span></div>
+    </section>
+
+    <section class="assistant-section section" id="assistant" aria-labelledby="assistant-title">
+      <div class="assistant-heading">
+        <div>
+          <p class="eyebrow" data-i18n="assistantLabel">03 — Try the assistant</p>
+          <h2 id="assistant-title" data-i18n="assistantTitle">Start with your field.</h2>
+        </div>
+        <p data-i18n="assistantText">Share a few details to request guidance shaped by your crop, season and local conditions.</p>
+      </div>
+      <div class="assistant-layout">
+        <form class="assistant-form" id="analysis-form">
+          <div class="form-topline"><span data-i18n="fieldProfile">FIELD PROFILE</span><span data-i18n="allFieldsRequired">ALL FIELDS REQUIRED</span></div>
+          <div class="form-grid">
+            <label class="field">
+              <span data-i18n="formState">State</span>
+              <select name="state" required>
+                <option value="" disabled selected data-i18n="selectState">Select a state</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                <option value="Ladakh">Ladakh</option>
+                <option value="Lakshadweep">Lakshadweep</option>
+                <option value="Puducherry">Puducherry</option>
+              </select>
+            </label>
+            <label class="field">
+              <span data-i18n="formCrop">Crop</span>
+              <select name="crop" required>
+                <option value="" disabled selected data-i18n="selectCrop">Select a crop</option>
+                <option value="Paddy">Paddy</option>
+                <option value="Millet">Millet</option>
+                <option value="Groundnut">Groundnut</option>
+                <option value="Cotton">Cotton</option>
+              </select>
+            </label>
+            <label class="field">
+              <span data-i18n="formLocation">Location</span>
+              <input name="location" type="text" data-i18n-placeholder="formLocationPlaceholder" placeholder="Village, district or region" autocomplete="address-level2" required>
+            </label>
+            <label class="field">
+              <span data-i18n="formSeason">Season</span>
+              <select name="season" required>
+                <option value="" disabled selected data-i18n="selectSeason">Select a season</option>
+                <option value="Kharif">Kharif / monsoon</option>
+                <option value="Rabi">Rabi / winter</option>
+                <option value="Zaid">Zaid / summer</option>
+              </select>
+            </label>
+            <label class="field">
+              <span data-i18n="formWeather">Current weather</span>
+              <select name="weather" required>
+                <option value="" disabled selected data-i18n="selectWeather">Select current weather</option>
+                <option value="Rainy">Rainy</option>
+                <option value="Sunny">Sunny</option>
+                <option value="Cloudy">Cloudy</option>
+              </select>
+            </label>
+            <label class="field field--full">
+              <span data-i18n="formSoil">Soil type</span>
+              <select name="soil" required>
+                <option value="" disabled selected data-i18n="selectSoil">Select a soil type</option>
+                <option value="Clay">Clay</option>
+                <option value="Sandy">Sandy</option>
+                <option value="Loamy">Loamy</option>
+                <option value="Sandy Loam">Sandy Loam</option>
+                <option value="Silty Soil">Silty Soil</option>
+                <option value="Black Soil">Black Soil</option>
+                <option value="Red Soil">Red Soil</option>
+                <option value="Alluvial Soil">Alluvial Soil</option>
+                <option value="Laterite Soil">Laterite Soil</option>
+                <option value="Peaty Soil">Peaty Soil</option>
+              </select>
+            </label>
+          </div>
+          <button class="button button--forest form-submit" type="submit">
+            <span class="button-label" data-i18n="submitAnalyze">Analyse with AI</span><span class="button-arrow" aria-hidden="true">↗</span>
+          </button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <section class="result-panel" id="ai-result" aria-labelledby="result-title" aria-live="polite">
+          <div class="result-panel__top"><span class="result-indicator"><i></i> <span data-i18n="analysisOutput">ANALYSIS OUTPUT</span></span><span class="result-panel__spark" aria-hidden="true">✳</span></div>
+          <h3 id="result-title" data-i18n="resultTitle">Your field, in context.</h3>
+          <p class="result-empty" id="result-empty" data-i18n="resultEmpty">Complete the field profile and run an analysis. Your response will appear here.</p>
+          <div class="result-content" id="result-content" hidden>
+            <div class="result-meta">
+              <div><span data-i18n="resultLanguage">LANGUAGE</span><strong id="result-language">—</strong></div>
+              <div><span data-i18n="resultState">STATE</span><strong id="result-state">—</strong></div>
+              <div><span data-i18n="resultCrop">CROP</span><strong id="result-crop">—</strong></div>
+              <div><span data-i18n="resultLocation">LOCATION</span><strong id="result-location">—</strong></div>
+              <div><span data-i18n="resultSoil">SOIL</span><strong id="result-soil">—</strong></div>
+            </div>
+            <div class="result-block"><span class="result-block__label" data-i18n="tradKnowledge">TRADITIONAL KNOWLEDGE</span><p id="result-traditional"></p></div>
+            <div class="result-block result-block--guidance"><span class="result-block__label" data-i18n="aiGuidance">AI GUIDANCE</span><p id="result-guidance"></p></div>
+          </div>
+        </section>
+        <section class="assistant-chat" id="assistant-chat" aria-labelledby="chat-title" hidden>
+          <div class="assistant-chat__heading">
+            <div>
+              <p class="eyebrow" data-i18n="chatLabel">FIELD QUESTIONS</p>
+              <h3 id="chat-title" data-i18n="chatTitle">Ask about this field</h3>
+                <p class="assistant-chat__prompt" data-i18n="chatPrompt">Ask about water, soil, pests, fertilizer, planting or crop care.</p>
+            </div>
+            <span id="chat-context-label" class="assistant-chat__context"></span>
+          </div>
+          <div class="chat-messages" id="chat-messages" role="log" aria-live="polite" aria-relevant="additions text"></div>
+          <form class="chat-form" id="chat-form">
+            <label class="sr-only" for="chat-question" data-i18n="chatQuestionLabel">Your question</label>
+            <input id="chat-question" name="question" type="text" maxlength="500" autocomplete="off" data-i18n-placeholder="chatPlaceholder" placeholder="Ask about water, soil, pests or this crop..." required>
+            <button class="button button--forest" type="submit" aria-label="Send question" data-i18n-aria-label="chatSend">Send</button>
+          </form>
+        </section>
+      </div>
+    </section>
+
+    <section class="process-section" id="how-it-works" aria-labelledby="process-title">
+      <div class="section process-section__inner">
+        <div class="process-heading">
+          <p class="eyebrow" data-i18n="processLabel">04 — How it works</p>
+          <h2 id="process-title" data-i18n="processTitle">From field notes<br>to thoughtful guidance.</h2>
+          <p data-i18n="processText">A simple sequence makes room for both community knowledge and current conditions.</p>
+        </div>
+        <ol class="process-list">
+          <li><span>01</span><div><h3 data-i18n="process01Head">Farmer Input</h3><p data-i18n="process01Text">Share crop, location, season, weather and soil.</p></div><b aria-hidden="true">↗</b></li>
+          <li><span>02</span><div><h3 data-i18n="process02Head">Gather Context</h3><p data-i18n="process02Text">Organize the field details that shape a decision.</p></div><b aria-hidden="true">↗</b></li>
+          <li><span>03</span><div><h3 data-i18n="process03Head">Retrieve Traditional Practices</h3><p data-i18n="process03Text">Bring relevant local and crop-specific knowledge into view.</p></div><b aria-hidden="true">↗</b></li>
+          <li><span>04</span><div><h3 data-i18n="process04Head">Compare</h3><p data-i18n="process04Text">Consider traditional practice alongside modern context.</p></div><b aria-hidden="true">↗</b></li>
+          <li><span>05</span><div><h3 data-i18n="process05Head">Generate Guidance</h3><p data-i18n="process05Text">Present a clear response to support informed choices.</p></div><b aria-hidden="true">↗</b></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="benefits-section section" aria-labelledby="benefits-title">
+      <div class="benefits-heading">
+        <p class="eyebrow" data-i18n="benefitsLabel">05 — Why it matters</p>
+        <h2 id="benefits-title" data-i18n="benefitsTitle">A stronger link between<br>knowledge and action.</h2>
+      </div>
+      <div class="benefit-grid">
+        <article class="benefit"><span>01 / <span data-i18n="benefit01Tag">PRESERVE</span></span><h3 data-i18n="benefit01Head">Keep local knowledge growing</h3><p data-i18n="benefit01Text">Help preserve farming knowledge that might otherwise remain undocumented.</p></article>
+        <article class="benefit"><span>02 / <span data-i18n="benefit02Tag">ACCESS</span></span><h3 data-i18n="benefit02Head">Make practices easier to find</h3><p data-i18n="benefit02Text">Improve access to traditional practices for farmers and the next generation.</p></article>
+        <article class="benefit"><span>03 / <span data-i18n="benefit03Tag">CONNECT</span></span><h3 data-i18n="benefit03Head">Bring context together</h3><p data-i18n="benefit03Text">Connect traditional knowledge with modern agricultural data and conditions.</p></article>
+        <article class="benefit"><span>04 / <span data-i18n="benefit04Tag">SUPPORT</span></span><h3 data-i18n="benefit04Head">Make informed decisions</h3><p data-i18n="benefit04Text">Support thoughtful farming decisions with relevant, understandable guidance.</p></article>
+      </div>
+    </section>
+
+    <section class="future-section" aria-labelledby="future-title">
+      <div class="section future-section__inner">
+        <div class="future-intro"><p class="eyebrow eyebrow--light" data-i18n="futureLabel">06 — Looking ahead</p><h2 id="future-title" data-i18n="futureTitle">Room to grow.</h2><p data-i18n="futureText">The next chapter connects more voices, more places and more ways of understanding the land.</p></div>
+        <ul class="future-list">
+          <li><span>01</span><span data-i18n="future01">Tamil voice assistant</span></li>
+          <li><span>02</span><span data-i18n="future02">Regional knowledge database</span></li>
+          <li><span>03</span><span data-i18n="future03">Soil and weather sensors</span></li>
+          <li><span>04</span><span data-i18n="future04">Crop-specific models</span></li>
+          <li><span>05</span><span data-i18n="future05">Digitized historical records</span></li>
+          <li><span>06</span><span data-i18n="future06">Advisory-service integration</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand brand--footer" href="#home"><span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M25.8 5.8C16.5 5.3 9.2 8.1 7 14.2c-1.6 4.5 1 8.4 5.2 8.4 7.2 0 12.9-7.3 13.6-16.8Z" stroke="currentColor" stroke-width="2"/><path d="M5.5 27c3.1-6.1 7.4-10.4 14.3-14.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="brand__name">fieldwise<span> / farming intelligence</span></span></a>
+    <p data-i18n="footerTag">Traditional wisdom. Modern perspective.</p>
+    <a class="footer-top" href="#home"><span data-i18n="footerTop">Back to top</span> <span aria-hidden="true">↑</span></a>
+    <small data-i18n="footerSmall">College project demonstration · AI-assisted decision support</small>
+  </footer>
+</body>
+</html>
